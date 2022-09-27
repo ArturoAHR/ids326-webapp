@@ -21,6 +21,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;  
+
+  --primary: #F18805;
+  --secondary: #FB9A23;
+  --auxiliar: #FBAC4B;
+
+  --primary-alt: #0E1428;
+  --secondary-alt: #25356A;
+  --auxiliar-alt: #95A5DA;
 }
 
 /* Scrollbar style */
