@@ -5,6 +5,9 @@ export const Routes = () => {
   return (
     <Switch>
       <Route exact path="/">
+        <></>
+      </Route>
+      <Route exact path="/hw-1/crud">
         <CRUD />
       </Route>
     </Switch>
