@@ -9,6 +9,9 @@ export type BaseCompany = {
   fax: string;
   email: string;
   website: string;
+};
+
+export type CompanyForeignEntities = {
   ceo?: Person;
 };
 
@@ -17,4 +20,4 @@ export type GetCompanyResponse = BaseEntityType &
     __ceo__?: Person;
   };
 
-export type Company = BaseEntityType & BaseCompany;
+export type Company = BaseEntityType & BaseCompany & CompanyForeignEntities;
