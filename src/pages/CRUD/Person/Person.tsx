@@ -1,4 +1,5 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { Box } from '@mui/material';
 import { usePerson } from '../../../hooks/usePerson';
 
 export const PersonCRUD = () => {
@@ -21,7 +22,9 @@ export const PersonCRUD = () => {
 
   return (
     <div className="crud-person-container">
-      <DataGrid columns={columns} rows={people} />
+      <Box sx={{ height: 400, width: '100%' }}>
+        <DataGrid columns={columns} rows={people} />
+      </Box>
     </div>
   );
 };
