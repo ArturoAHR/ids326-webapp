@@ -1,6 +1,10 @@
 import { Button, Checkbox, Form, Input, Modal, Select } from 'antd';
 import { FC, useEffect, useState } from 'react';
+import { useCompany } from '../../../../hooks/useCompany';
+import { useContactType } from '../../../../hooks/useContactTypes';
+import { useDepartment } from '../../../../hooks/useDepartment';
 import { usePerson } from '../../../../hooks/usePerson';
+import { useRole } from '../../../../hooks/useRole';
 import { CreatePersonForm, Person } from '../../../../types/person';
 
 type CreatePersonProps = {
@@ -16,16 +20,18 @@ export const CreateEditPerson: FC<CreatePersonProps> = ({
 }) => {
   const [form] = Form.useForm<CreatePersonForm>();
   const { createPerson, editPerson } = usePerson();
+  const { companyOptions } = useCompany();
+  const { roleOptions } = useRole();
+  const { departmentOptions } = useDepartment();
+  const { contactTypeOptions } = useContactType();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => setIsModalVisible(true);
 
   const handleSubmit = (values: CreatePersonForm) => {
-    if (editMode) {
-      editPerson({ id: selectedPerson!.id, ...values });
-      return;
-    }
-    createPerson(values);
+    if (editMode) editPerson({ id: selectedPerson!.id, ...values });
+    else createPerson(values);
+    setIsModalVisible(false);
   };
 
   const handleCancel = () => setIsModalVisible(false);
@@ -49,7 +55,6 @@ export const CreateEditPerson: FC<CreatePersonProps> = ({
         onOk={form.submit}
         okText="Submit"
         onCancel={handleCancel}
-        okButtonProps={{ disabled: !form.isFieldsTouched() }}
       >
         <Form form={form} onFinish={handleSubmit} layout="vertical">
           <Form.Item name="firstName" label="First Name">
@@ -71,16 +76,16 @@ export const CreateEditPerson: FC<CreatePersonProps> = ({
             <Checkbox />
           </Form.Item>
           <Form.Item name="companyId" label="Company">
-            <Select />
+            <Select options={companyOptions} />
           </Form.Item>
           <Form.Item name="departmentId" label="Department">
-            <Select />
+            <Select options={departmentOptions} />
           </Form.Item>
           <Form.Item name="roleId" label="Role">
-            <Select />
+            <Select options={roleOptions} />
           </Form.Item>
           <Form.Item name="contactTypeId" label="Contact Type">
-            <Select />
+            <Select options={contactTypeOptions} />
           </Form.Item>
         </Form>
       </Modal>
