@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { DepartmentMapper } from '../mappers/department';
 import { DepartmentService } from '../services/department-service';
 import { Department } from '../types/department';
+import { SelectOption } from '../types/misc';
 
 export const useDepartment = () => {
   const [departments, setDepartments] = useState<Department[]>([]);
@@ -9,6 +10,15 @@ export const useDepartment = () => {
   const departmentService: DepartmentService = useMemo(
     () => new DepartmentService(),
     [],
+  );
+
+  const departmentOptions: SelectOption[] = useMemo(
+    () =>
+      departments.map((department) => ({
+        value: department.id,
+        label: department.name,
+      })),
+    [departments],
   );
 
   const fetchDepartments = async () => {
@@ -25,6 +35,7 @@ export const useDepartment = () => {
 
   return {
     departments,
+    departmentOptions,
     fetchDepartments,
   };
 };
