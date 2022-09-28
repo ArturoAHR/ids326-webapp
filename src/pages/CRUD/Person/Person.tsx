@@ -1,7 +1,9 @@
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { Person } from '../../../types/person';
+import { usePerson } from '../../../hooks/usePerson';
 
 export const PersonCRUD = () => {
+  const { people } = usePerson();
+
   const columns: GridColDef[] = [
     {
       field: 'firstName',
@@ -17,10 +19,9 @@ export const PersonCRUD = () => {
     },
   ];
 
-  const rows: Person[] = [];
   return (
     <div className="crud-person-container">
-      <DataGrid columns={columns} rows={rows} />
+      <DataGrid columns={columns} rows={people} />
     </div>
   );
 };
