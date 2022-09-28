@@ -3,13 +3,12 @@ import { ContactType } from './pages/CRUD/ContactType/ContactType';
 import { CRUD } from './pages/CRUD/CRUD';
 import { Person } from './pages/CRUD/Person/Person';
 import { Role } from './pages/CRUD/Role/Role';
+import { Root } from './pages/Root/Root';
 
 export const Router = () => {
   return (
     <Routes>
-      <Route path="/">
-        <></>
-      </Route>
+      <Route path="/" element={<Root />} />
       <Route
         path="/hw-1/crud/person"
         element={
