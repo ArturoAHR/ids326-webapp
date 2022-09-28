@@ -1,5 +1,5 @@
 import { usePerson } from '../../../hooks/usePerson';
-import { Table } from 'antd';
+import { Table, Row, Col, Button } from 'antd';
 
 import './PersonView.css';
 import { Company } from '../../../types/company';
@@ -77,11 +77,29 @@ export const PersonView = () => {
 
   return (
     <div className="crud-person-container">
+      <Row className="crud-person-button-group" gutter={16} justify={'end'}>
+        <Col>
+          <Button>Create</Button>
+        </Col>
+        <Col>
+          <Button>Edit</Button>
+        </Col>
+        <Col>
+          <Button>Delete</Button>
+        </Col>
+      </Row>
       <div className="crud-person-table">
         <Table
           columns={columns}
           dataSource={people}
           scroll={{ x: 'max-content', y: 400 }}
+          rowKey={(person) => person.id}
+          rowSelection={{
+            type: 'radio',
+            onSelect: (person) => {
+              console.log(person);
+            },
+          }}
         />
       </div>
     </div>
