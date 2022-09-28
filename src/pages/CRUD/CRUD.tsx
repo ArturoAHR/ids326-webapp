@@ -1,5 +1,5 @@
-import { Tab, Tabs } from '@mui/material';
-import { FC, ReactNode, SyntheticEvent, useState } from 'react';
+import { FC, ReactNode, useState } from 'react';
+import { Tabs } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import './CRUD.css';
@@ -21,9 +21,8 @@ export const CRUD: FC<CRUDProps> = ({ children }) => {
     CRUDTabMenuOptions.Person,
   );
 
-  const handleChange = (event: SyntheticEvent, value: CRUDTabMenuOptions) => {
-    setOptionSelected(value);
-    event.preventDefault();
+  const handleChange = (value: string) => {
+    setOptionSelected(value as CRUDTabMenuOptions);
     navigate('/hw-1/crud/' + value);
   };
 
@@ -31,14 +30,14 @@ export const CRUD: FC<CRUDProps> = ({ children }) => {
     <div className="crud-menu-container">
       <h1 className="crud-menu-title">CRUD</h1>
       <Tabs
-        value={optionSelected}
+        defaultActiveKey={optionSelected}
         onChange={handleChange}
-        className="crud-menu"
-      >
-        <Tab label="Person" value={CRUDTabMenuOptions.Person} />
-        <Tab label="Role" value={CRUDTabMenuOptions.Role} />
-        <Tab label="Contact Type" value={CRUDTabMenuOptions.ContactType} />
-      </Tabs>
+        items={[
+          { label: 'Person', key: CRUDTabMenuOptions.Person },
+          { label: 'Role', key: CRUDTabMenuOptions.Role },
+          { label: 'Contact Type', key: CRUDTabMenuOptions.ContactType },
+        ]}
+      />
       {children}
     </div>
   );
