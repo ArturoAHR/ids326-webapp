@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { ContactType } from './pages/CRUD/ContactType/ContactType';
 import { CRUD } from './pages/CRUD/CRUD';
-import { PersonView } from './pages/CRUD/PersonView/Person';
+import { PersonView } from './pages/CRUD/PersonView/PersonView';
 import { Role } from './pages/CRUD/Role/Role';
 import { Root } from './pages/Root/Root';
 
