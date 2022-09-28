@@ -39,3 +39,5 @@ export type EditPersonRequest = BaseIdType & Partial<BasePerson>;
 export type DeletePersonRequest = BaseIdType;
 
 export type Person = BaseEntityType & BasePerson & PersonForeignEntities;
+
+export type CreatePersonForm = BasePerson;
