@@ -1,4 +1,4 @@
-import { BaseEntityType } from './base-entity-type';
+import { BaseEntityType, BaseIdType } from './base-entity-type';
 
 export type BaseRole = {
   name: string;
@@ -8,3 +8,11 @@ export type BaseRole = {
 export type GetRolesResponse = BaseEntityType & BaseRole;
 
 export type Role = BaseEntityType & BaseRole;
+
+export type CreateRoleRequest = BaseRole;
+
+export type EditRoleRequest = BaseIdType & Partial<BaseRole>;
+
+export type DeleteRoleRequest = BaseIdType;
+
+export type CreateRoleForm = BaseRole;
