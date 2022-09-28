@@ -2,6 +2,8 @@ import { Tab, Tabs } from '@mui/material';
 import { FC, ReactNode, SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import './CRUD.css';
+
 type CRUDProps = {
   children?: ReactNode;
 };
@@ -21,8 +23,8 @@ export const CRUD: FC<CRUDProps> = ({ children }) => {
   };
 
   return (
-    <div>
-      <Tabs onChange={handleChange}>
+    <div className="crud-menu-container">
+      <Tabs onChange={handleChange} className="crud-menu">
         <Tab label="Person" value={CRUDTabMenuOptions.Person} />
         <Tab label="Role" value={CRUDTabMenuOptions.Role} />
         <Tab label="Contact Type" value={CRUDTabMenuOptions.ContactType} />
