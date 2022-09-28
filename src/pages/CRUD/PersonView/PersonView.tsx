@@ -7,6 +7,7 @@ import { Role } from '../../../types/role';
 import { ContactType } from '../../../types/contact-type';
 import { FC, useState } from 'react';
 import { Person } from '../../../types/person';
+import { CreateEditPerson } from './CreateEditPerson/CreateEditPerson';
 
 export const PersonView: FC = () => {
   const { people, deletePerson } = usePerson();
@@ -79,10 +80,14 @@ export const PersonView: FC = () => {
     <div className="crud-person-container">
       <Row className="crud-person-button-group" gutter={16} justify={'end'}>
         <Col>
-          <Button>Create</Button>
+          <CreateEditPerson />
         </Col>
         <Col>
-          <Button disabled={!selectedPerson}>Edit</Button>
+          <CreateEditPerson
+            editMode
+            disabled={!selectedPerson}
+            selectedPerson={selectedPerson}
+          />
         </Col>
         <Col>
           <Button disabled={!selectedPerson} onClick={handleDelete}>
