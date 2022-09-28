@@ -5,7 +5,7 @@ export class PersonService extends AxiosService {
   private readonly URL = '/person';
 
   getAll = async (): Promise<GetPeopleResponse[]> => {
-    const { data: results, status } = await this.axios.get<GetPeopleResponse[]>(
+    const { data: results } = await this.axios.get<GetPeopleResponse[]>(
       this.URL,
     );
     return results;
