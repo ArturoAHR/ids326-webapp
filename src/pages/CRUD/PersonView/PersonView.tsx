@@ -5,10 +5,10 @@ import './PersonView.css';
 import { Company } from '../../../types/company';
 import { Role } from '../../../types/role';
 import { ContactType } from '../../../types/contact-type';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Person } from '../../../types/person';
 
-export const PersonView = () => {
+export const PersonView: FC = () => {
   const { people, deletePerson } = usePerson();
 
   const [selectedPerson, setSelectedPerson] = useState<Person>();
