@@ -1,0 +1,17 @@
+.crud-role-container {
+  padding: 24px;
+}
+
+.crud-role-button-group {
+  margin-bottom: 16px;
+}
+
+/* AntD Override */
+
+.crud-role-container .ant-table-cell {
+  min-width: 150px;
+}
+
+.crud-role-container .ant-table-selection-column {
+  min-width: 50px;
+}

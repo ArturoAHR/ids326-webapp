@@ -3,6 +3,8 @@ import { FC, useState } from 'react';
 import { useRole } from '../../../hooks/useRole';
 import { Role } from '../../../types/role';
 
+import './RoleView.css';
+
 export const RoleView: FC = () => {
   const { roles } = useRole();
 
