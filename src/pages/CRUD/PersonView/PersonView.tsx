@@ -17,32 +17,26 @@ export const PersonView = () => {
     {
       title: 'First Name',
       dataIndex: 'firstName',
-      width: 150,
     },
     {
       title: 'Middle Name',
       dataIndex: 'middleName',
-      width: 150,
     },
     {
       title: 'Last Name',
       dataIndex: 'lastName',
-      width: 150,
     },
     {
       title: 'Phone',
       dataIndex: 'phone',
-      width: 150,
     },
     {
       title: 'Email',
       dataIndex: 'email',
-      width: 150,
     },
     {
       title: 'Staff',
       dataIndex: 'staff',
-      width: 150,
       render: (item: boolean) => {
         return <>{item}</>;
       },
@@ -50,7 +44,6 @@ export const PersonView = () => {
     {
       title: 'Company',
       dataIndex: 'company',
-      width: 150,
       render: (item: Company) => {
         return item.name;
       },
@@ -58,7 +51,6 @@ export const PersonView = () => {
     {
       title: 'Role',
       dataIndex: 'role',
-      width: 150,
       render: (item: Role) => {
         return item.name;
       },
