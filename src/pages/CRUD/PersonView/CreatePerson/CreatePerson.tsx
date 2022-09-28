@@ -1,4 +1,4 @@
-import { Button, Form, Modal } from 'antd';
+import { Button, Checkbox, Form, Input, Modal, Select } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import { usePerson } from '../../../../hooks/usePerson';
 import { CreatePersonForm, Person } from '../../../../types/person';
@@ -48,7 +48,38 @@ export const CreatePerson: FC<CreatePersonProps> = ({
         onCancel={handleCancel}
         okButtonProps={{ disabled: !form.isFieldsTouched() }}
       >
-        <Form form={form} onFinish={handleSubmit} layout="vertical"></Form>
+        <Form form={form} onFinish={handleSubmit} layout="vertical">
+          <Form.Item name="firstName" label="First Name">
+            <Input />
+          </Form.Item>
+          <Form.Item name="middleName" label="Middle Name">
+            <Input />
+          </Form.Item>
+          <Form.Item name="lastName" label="Last Name">
+            <Input />
+          </Form.Item>
+          <Form.Item name="phone" label="Phone">
+            <Input />
+          </Form.Item>
+          <Form.Item name="email" label="Email">
+            <Input />
+          </Form.Item>
+          <Form.Item name="staff" label="Staff">
+            <Checkbox />
+          </Form.Item>
+          <Form.Item name="companyId" label="Company">
+            <Select />
+          </Form.Item>
+          <Form.Item name="departmentId" label="Department">
+            <Select />
+          </Form.Item>
+          <Form.Item name="roleId" label="Role">
+            <Select />
+          </Form.Item>
+          <Form.Item name="contactTypeId" label="Contact Type">
+            <Select />
+          </Form.Item>
+        </Form>
       </Modal>
     </>
   );
