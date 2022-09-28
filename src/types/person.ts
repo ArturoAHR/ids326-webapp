@@ -1,4 +1,8 @@
 import { BaseEntityType, BaseIdType } from './base-entity-type';
+import { Company, GetCompanyResponse } from './company';
+import { ContactType, GetContactTypesResponse } from './contact-type';
+import { Department, GetDepartmentsResponse } from './department';
+import { GetRolesResponse, Role } from './role';
 
 export type BasePerson = {
   firstName: string;
@@ -14,18 +18,18 @@ export type BasePerson = {
 };
 
 export type PersonForeignEntities = {
-  company?: any;
-  role?: any;
-  department?: any;
-  contactType?: any;
+  company?: Company;
+  role?: Role;
+  department?: Department;
+  contactType?: ContactType;
 };
 
 export type GetPeopleResponse = BaseEntityType &
   BasePerson & {
-    __company__?: any;
-    __role__?: any;
-    __department__?: any;
-    __contactType__?: any;
+    __company__?: GetCompanyResponse;
+    __role__?: GetRolesResponse;
+    __department__?: GetDepartmentsResponse;
+    __contactType__?: GetContactTypesResponse;
   };
 
 export type CreatePersonRequest = BasePerson;
