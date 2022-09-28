@@ -1,4 +1,3 @@
-import { Tab, Tabs } from '@mui/material';
 import { FC, ReactNode, SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,7 +29,7 @@ export const CRUD: FC<CRUDProps> = ({ children }) => {
   return (
     <div className="crud-menu-container">
       <h1 className="crud-menu-title">CRUD</h1>
-      <Tabs
+      {/* <
         value={optionSelected}
         onChange={handleChange}
         className="crud-menu"
@@ -38,7 +37,7 @@ export const CRUD: FC<CRUDProps> = ({ children }) => {
         <Tab label="Person" value={CRUDTabMenuOptions.Person} />
         <Tab label="Role" value={CRUDTabMenuOptions.Role} />
         <Tab label="Contact Type" value={CRUDTabMenuOptions.ContactType} />
-      </Tabs>
+      </Tabs> */}
       {children}
     </div>
   );
