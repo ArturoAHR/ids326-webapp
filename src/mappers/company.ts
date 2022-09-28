@@ -1,10 +1,11 @@
 import { Company, GetCompanyResponse } from '../types/company';
+import { PersonMapper } from './person';
 
 export class CompanyMapper {
   static transformToEntityType = (dto: GetCompanyResponse): Company => {
     const company = {
       ...dto,
-      ceo: dto.__ceo__,
+      ceo: dto.__ceo__ && PersonMapper.transformToEntityType(dto.__ceo__),
     };
     return company;
   };
