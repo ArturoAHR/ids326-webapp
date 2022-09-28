@@ -20,6 +20,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   rules: {
     'spaced-comment': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     quotes: ['error', 'single'],
     'no-duplicate-imports': 'error',
     'react/react-in-jsx-scope': 'off',
