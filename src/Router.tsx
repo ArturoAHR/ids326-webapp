@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { ContactType } from './pages/CRUD/ContactType/ContactType';
 import { CRUD } from './pages/CRUD/CRUD';
 import { PersonView } from './pages/CRUD/PersonView/PersonView';
-import { Role } from './pages/CRUD/Role/Role';
+import { RoleView } from './pages/CRUD/RoleView/RoleView';
 import { Root } from './pages/Root/Root';
 
 export const Router = () => {
@@ -21,7 +21,7 @@ export const Router = () => {
         path="/hw-1/crud/role"
         element={
           <CRUD>
-            <Role />
+            <RoleView />
           </CRUD>
         }
       />
