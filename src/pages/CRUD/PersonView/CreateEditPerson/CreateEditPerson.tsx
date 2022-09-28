@@ -32,6 +32,9 @@ export const CreateEditPerson: FC<CreatePersonProps> = ({
 
   useEffect(() => {
     if (!isModalVisible) form.resetFields();
+    if (isModalVisible && editMode) {
+      form.setFieldsValue({ ...selectedPerson });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isModalVisible]);
 
