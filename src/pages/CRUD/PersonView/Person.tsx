@@ -2,7 +2,7 @@ import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Box } from '@mui/material';
 import { usePerson } from '../../../hooks/usePerson';
 
-export const PersonCRUD = () => {
+export const PersonView = () => {
   const { people } = usePerson();
 
   const columns: GridColDef[] = [

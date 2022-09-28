@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { ContactType } from './pages/CRUD/ContactType/ContactType';
 import { CRUD } from './pages/CRUD/CRUD';
-import { PersonCRUD } from './pages/CRUD/Person/Person';
+import { PersonView } from './pages/CRUD/PersonView/Person';
 import { Role } from './pages/CRUD/Role/Role';
 import { Root } from './pages/Root/Root';
 
@@ -13,7 +13,7 @@ export const Router = () => {
         path="/hw-1/crud/person"
         element={
           <CRUD>
-            <PersonCRUD />
+            <PersonView />
           </CRUD>
         }
       />
