@@ -1,4 +1,4 @@
-import { BaseEntityType } from './base-entity-type';
+import { BaseEntityType, BaseIdType } from './base-entity-type';
 
 export type BasePerson = {
   firstName: string;
@@ -27,5 +27,9 @@ export type GetPeopleResponse = BaseEntityType &
     __department__: any;
     __contactType__: any;
   };
+
+export type CreatePersonRequest = BasePerson;
+
+export type EditPersonRequest = BaseIdType & Partial<BasePerson>;
 
 export type Person = BaseEntityType & BasePerson & PersonForeignEntities;
