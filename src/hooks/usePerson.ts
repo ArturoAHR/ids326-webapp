@@ -18,5 +18,5 @@ export const usePerson = () => {
     fetchPeople();
   }, []);
 
-  return { people };
+  return { people, fetchPeople };
 };
