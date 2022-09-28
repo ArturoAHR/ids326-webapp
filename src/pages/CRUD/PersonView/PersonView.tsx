@@ -39,7 +39,7 @@ export const PersonView: FC = () => {
       title: 'Staff',
       dataIndex: 'staff',
       render: (item: boolean) => {
-        return <>{item}</>;
+        return <>{item ? 'Yes' : 'No'}</>;
       },
     },
     {
