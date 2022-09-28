@@ -23,14 +23,14 @@ export const RoleView: FC = () => {
 
   return (
     <div className="crud-role-container">
-      <Row className="crud-person-button-group" gutter={16} justify={'end'}>
+      <Row className="crud-role-button-group" gutter={16} justify={'end'}>
         <Col>Button</Col>
         <Col>Button</Col>
         <Col>
           <Button disabled={!selectedRole}>Delete</Button>
         </Col>
       </Row>
-      <div className="crud-person-table">
+      <div className="crud-role-table">
         <Table
           columns={columns}
           dataSource={roles}
