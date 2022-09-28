@@ -1,3 +1,9 @@
 .crud-person-container {
   padding: 24px;
 }
+
+/* AntD Override */
+
+.crud-person-container .ant-table-cell {
+  min-width: 150px;
+}
