@@ -22,10 +22,10 @@ export type PersonForeignEntities = {
 
 export type GetPeopleResponse = BaseEntityType &
   BasePerson & {
-    __company__: any;
-    __role__: any;
-    __department__: any;
-    __contactType__: any;
+    __company__?: any;
+    __role__?: any;
+    __department__?: any;
+    __contactType__?: any;
   };
 
 export type CreatePersonRequest = BasePerson;
