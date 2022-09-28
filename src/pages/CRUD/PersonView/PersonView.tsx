@@ -5,9 +5,13 @@ import './PersonView.css';
 import { Company } from '../../../types/company';
 import { Role } from '../../../types/role';
 import { ContactType } from '../../../types/contact-type';
+import { useState } from 'react';
+import { Person } from '../../../types/person';
 
 export const PersonView = () => {
   const { people } = usePerson();
+
+  const [selectedPerson, setSelectedPerson] = useState<Person>();
 
   const columns = [
     {
@@ -82,7 +86,7 @@ export const PersonView = () => {
           <Button>Create</Button>
         </Col>
         <Col>
-          <Button>Edit</Button>
+          <Button disabled={!selectedPerson}>Edit</Button>
         </Col>
         <Col>
           <Button>Delete</Button>
@@ -97,7 +101,7 @@ export const PersonView = () => {
           rowSelection={{
             type: 'radio',
             onSelect: (person) => {
-              console.log(person);
+              setSelectedPerson(person);
             },
           }}
         />
