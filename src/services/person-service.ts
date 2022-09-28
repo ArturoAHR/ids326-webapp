@@ -1,4 +1,4 @@
-import { GetPeopleResponse } from '../types/person';
+import { DeletePersonRequest, GetPeopleResponse } from '../types/person';
 import { AxiosService } from './axios-service';
 
 export class PersonService extends AxiosService {
@@ -9,5 +9,10 @@ export class PersonService extends AxiosService {
       this.URL,
     );
     return results;
+  };
+
+  delete = async ({ id }: DeletePersonRequest): Promise<boolean> => {
+    const { status } = await this.axios.delete(`${this.URL}/${id}`);
+    return status === 200 || status === 201;
   };
 }
