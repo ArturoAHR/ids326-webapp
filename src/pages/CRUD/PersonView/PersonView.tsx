@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { Person } from '../../../types/person';
 
 export const PersonView = () => {
-  const { people } = usePerson();
+  const { people, deletePerson } = usePerson();
 
   const [selectedPerson, setSelectedPerson] = useState<Person>();
 
@@ -79,6 +79,10 @@ export const PersonView = () => {
     },
   ];
 
+  const handleDelete = () => {
+    deletePerson({ id: selectedPerson!.id });
+  };
+
   return (
     <div className="crud-person-container">
       <Row className="crud-person-button-group" gutter={16} justify={'end'}>
@@ -89,7 +93,9 @@ export const PersonView = () => {
           <Button disabled={!selectedPerson}>Edit</Button>
         </Col>
         <Col>
-          <Button>Delete</Button>
+          <Button disabled={!selectedPerson} onClick={handleDelete}>
+            Delete
+          </Button>
         </Col>
       </Row>
       <div className="crud-person-table">
