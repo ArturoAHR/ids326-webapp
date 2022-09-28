@@ -9,7 +9,7 @@ type CreatePersonProps = {
   selectedPerson: Person;
 };
 
-export const CreatePerson: FC<CreatePersonProps> = ({
+export const CreateEditPerson: FC<CreatePersonProps> = ({
   disabled,
   editMode,
   selectedPerson,
