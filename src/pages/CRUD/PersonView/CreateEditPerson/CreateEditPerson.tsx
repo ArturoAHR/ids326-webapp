@@ -4,9 +4,9 @@ import { usePerson } from '../../../../hooks/usePerson';
 import { CreatePersonForm, Person } from '../../../../types/person';
 
 type CreatePersonProps = {
-  disabled: boolean;
-  editMode: boolean;
-  selectedPerson: Person;
+  disabled?: boolean;
+  editMode?: boolean;
+  selectedPerson?: Person;
 };
 
 export const CreateEditPerson: FC<CreatePersonProps> = ({
@@ -22,7 +22,7 @@ export const CreateEditPerson: FC<CreatePersonProps> = ({
 
   const handleSubmit = (values: CreatePersonForm) => {
     if (editMode) {
-      editPerson({ id: selectedPerson.id, ...values });
+      editPerson({ id: selectedPerson!.id, ...values });
       return;
     }
     createPerson(values);
