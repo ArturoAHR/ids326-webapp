@@ -1,6 +1,6 @@
 import { BaseEntityType } from './base-entity-type';
 
-export type Person = BaseEntityType & {
+export type BasePerson = {
   firstName: string;
   middleName: string;
   lastName: string;
@@ -11,15 +11,21 @@ export type Person = BaseEntityType & {
   contactTypeId: string;
   departmentId: string;
   companyId: string;
-  company: any;
-  role: any;
-  department: any;
-  contactType: any;
 };
 
-export type GetPeopleResponse = Person & {
-  __company__: any;
-  __role__: any;
-  __department__: any;
-  __contactType__: any;
+export type PersonForeignEntities = {
+  company?: any;
+  role?: any;
+  department?: any;
+  contactType?: any;
 };
+
+export type GetPeopleResponse = BaseEntityType &
+  BasePerson & {
+    __company__: any;
+    __role__: any;
+    __department__: any;
+    __contactType__: any;
+  };
+
+export type Person = BaseEntityType & BasePerson & PersonForeignEntities;
