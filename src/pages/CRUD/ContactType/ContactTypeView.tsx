@@ -1,6 +1,6 @@
 import { Row, Col, Button, Table } from 'antd';
 import { useState } from 'react';
-import { useContactType } from '../../../hooks/useContactTypes';
+import { useContactType } from '../../../hooks/useContactType';
 import { ContactType } from '../../../types/contact-type';
 
 export const ContactTypeView = () => {
