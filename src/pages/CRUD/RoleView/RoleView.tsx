@@ -7,7 +7,7 @@ import { CreateEditRole } from './CreateEditRole/CreateEditRole';
 import './RoleView.css';
 
 export const RoleView: FC = () => {
-  const { roles } = useRole();
+  const { roles, deleteRole } = useRole();
 
   const [selectedRole, setSelectedRole] = useState<Role>();
 
@@ -23,6 +23,10 @@ export const RoleView: FC = () => {
     },
   ];
 
+  const handleDelete = () => {
+    deleteRole({ id: selectedRole!.id });
+  };
+
   return (
     <div className="crud-role-container">
       <Row className="crud-role-button-group" gutter={16} justify={'end'}>
@@ -37,7 +41,9 @@ export const RoleView: FC = () => {
           />
         </Col>
         <Col>
-          <Button disabled={!selectedRole}>Delete</Button>
+          <Button disabled={!selectedRole} onClick={handleDelete}>
+            Delete
+          </Button>
         </Col>
       </Row>
       <div className="crud-role-table">
