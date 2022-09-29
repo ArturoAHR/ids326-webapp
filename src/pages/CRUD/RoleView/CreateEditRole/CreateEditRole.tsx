@@ -7,12 +7,14 @@ type CreateRoleProps = {
   disabled?: boolean;
   editMode?: boolean;
   selectedRole?: Role;
+  refetch: () => Promise<void>;
 };
 
 export const CreateEditRole: FC<CreateRoleProps> = ({
   disabled,
   editMode,
   selectedRole,
+  refetch,
 }) => {
   const [form] = Form.useForm<CreateRoleForm>();
   const { createRole, editRole } = useRole();
@@ -20,9 +22,10 @@ export const CreateEditRole: FC<CreateRoleProps> = ({
 
   const showModal = () => setIsModalVisible(true);
 
-  const handleSubmit = (values: CreateRoleForm) => {
-    if (editMode) editRole({ id: selectedRole!.id, ...values });
-    else createRole(values);
+  const handleSubmit = async (values: CreateRoleForm) => {
+    if (editMode) await editRole({ id: selectedRole!.id, ...values });
+    else await createRole(values);
+    await refetch();
     setIsModalVisible(false);
   };
 

@@ -7,7 +7,7 @@ import { CreateEditRole } from './CreateEditRole/CreateEditRole';
 import './RoleView.css';
 
 export const RoleView: FC = () => {
-  const { roles, deleteRole } = useRole();
+  const { roles, fetchRoles, deleteRole } = useRole();
 
   const [selectedRole, setSelectedRole] = useState<Role>();
 
@@ -32,13 +32,14 @@ export const RoleView: FC = () => {
     <div className="crud-role-container">
       <Row className="crud-role-button-group" gutter={16} justify={'end'}>
         <Col>
-          <CreateEditRole />
+          <CreateEditRole refetch={fetchRoles} />
         </Col>
         <Col>
           <CreateEditRole
             editMode
             disabled={!selectedRole}
             selectedRole={selectedRole}
+            refetch={fetchRoles}
           />
         </Col>
         <Col>
