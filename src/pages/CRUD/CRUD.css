@@ -1,0 +1,20 @@
+.crud-menu-container {
+  width: 100%;
+}
+
+.crud-menu-title {
+  margin: 20px 0 0px 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.crud-menu {
+  width: 100%;
+  box-shadow: inset 0px -1px 0px #D9D9D9;
+}
+
+/* AntD Overrides */
+
+.crud-menu-container .ant-tabs-nav-list {
+  margin-left: 24px;
+}
