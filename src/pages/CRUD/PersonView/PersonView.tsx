@@ -74,6 +74,7 @@ export const PersonView: FC = () => {
 
   const handleDelete = () => {
     deletePerson({ id: selectedPerson!.id });
+    setSelectedPerson(undefined);
   };
 
   return (

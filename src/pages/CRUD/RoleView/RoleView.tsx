@@ -25,6 +25,7 @@ export const RoleView: FC = () => {
 
   const handleDelete = () => {
     deleteRole({ id: selectedRole!.id });
+    setSelectedRole(undefined);
   };
 
   return (
