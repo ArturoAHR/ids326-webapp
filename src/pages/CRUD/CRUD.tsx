@@ -26,7 +26,7 @@ export const CRUD: FC<CRUDProps> = ({ children }) => {
     <div className="crud-menu-container">
       <h1 className="crud-menu-title">CRUD</h1>
       <Tabs
-        defaultActiveKey={location.pathname}
+        activeKey={location.pathname}
         onChange={handleChange}
         items={[
           { label: 'Person', key: CRUDTabMenuOptions.Person },
