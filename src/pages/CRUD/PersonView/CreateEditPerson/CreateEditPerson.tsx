@@ -1,7 +1,7 @@
 import { Button, Checkbox, Form, Input, Modal, Select } from 'antd';
 import { FC, useEffect, useState } from 'react';
 import { useCompany } from '../../../../hooks/useCompany';
-import { useContactType } from '../../../../hooks/useContactTypes';
+import { useContactType } from '../../../../hooks/useContactType';
 import { useDepartment } from '../../../../hooks/useDepartment';
 import { usePerson } from '../../../../hooks/usePerson';
 import { useRole } from '../../../../hooks/useRole';
