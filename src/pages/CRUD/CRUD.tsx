@@ -1,6 +1,6 @@
-import { FC, ReactNode, useState } from 'react';
+import { FC, ReactNode } from 'react';
 import { Tabs } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import './CRUD.css';
 
@@ -9,28 +9,24 @@ type CRUDProps = {
 };
 
 enum CRUDTabMenuOptions {
-  Person = 'person',
-  Role = 'role',
-  ContactType = 'contact-type',
+  Person = '/hw-1/crud/person',
+  Role = '/hw-1/crud/role',
+  ContactType = '/hw-1/crud/contact-type',
 }
 
 export const CRUD: FC<CRUDProps> = ({ children }) => {
   const navigate = useNavigate();
-
-  const [optionSelected, setOptionSelected] = useState<CRUDTabMenuOptions>(
-    CRUDTabMenuOptions.Person,
-  );
+  const location = useLocation();
 
   const handleChange = (value: string) => {
-    setOptionSelected(value as CRUDTabMenuOptions);
-    navigate('/hw-1/crud/' + value);
+    navigate(value);
   };
 
   return (
     <div className="crud-menu-container">
       <h1 className="crud-menu-title">CRUD</h1>
       <Tabs
-        defaultActiveKey={optionSelected}
+        defaultActiveKey={location.pathname}
         onChange={handleChange}
         items={[
           { label: 'Person', key: CRUDTabMenuOptions.Person },
