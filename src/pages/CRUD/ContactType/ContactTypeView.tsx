@@ -2,9 +2,11 @@ import { Row, Col, Button, Table } from 'antd';
 import { useState } from 'react';
 import { useContactType } from '../../../hooks/useContactType';
 import { ContactType } from '../../../types/contact-type';
+import { CreateEditContactType } from './CreateEditContactType/CreateEditContactType';
 
 export const ContactTypeView = () => {
-  const { contactTypes } = useContactType();
+  const { contactTypes, fetchContactTypes, deleteContactType } =
+    useContactType();
 
   const [selectedContactType, setSelectedContactType] = useState<ContactType>();
 
@@ -20,6 +22,10 @@ export const ContactTypeView = () => {
     },
   ];
 
+  const handleDelete = () => {
+    deleteContactType({ id: selectedContactType!.id });
+  };
+
   return (
     <div className="crud-contact-type-container">
       <Row
@@ -27,7 +33,7 @@ export const ContactTypeView = () => {
         gutter={16}
         justify={'end'}
       >
-        {/* <Col>
+        <Col>
           <CreateEditContactType refetch={fetchContactTypes} />
         </Col>
         <Col>
@@ -37,9 +43,9 @@ export const ContactTypeView = () => {
             selectedContactType={selectedContactType}
             refetch={fetchContactTypes}
           />
-        </Col> */}
+        </Col>
         <Col>
-          <Button disabled={!selectedContactType} /* onClick={handleDelete}*/>
+          <Button disabled={!selectedContactType} onClick={handleDelete}>
             Delete
           </Button>
         </Col>
