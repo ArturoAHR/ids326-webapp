@@ -4,6 +4,8 @@ import { useContactType } from '../../../hooks/useContactType';
 import { ContactType } from '../../../types/contact-type';
 import { CreateEditContactType } from './CreateEditContactType/CreateEditContactType';
 
+import './ContactTypeView.css';
+
 export const ContactTypeView = () => {
   const { contactTypes, fetchContactTypes, deleteContactType } =
     useContactType();
