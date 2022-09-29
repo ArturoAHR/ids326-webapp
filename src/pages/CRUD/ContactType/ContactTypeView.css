@@ -1,0 +1,17 @@
+.crud-contact-type-container {
+  padding: 24px;
+}
+
+.crud-contact-type-button-group {
+  margin-bottom: 16px;
+}
+
+/* AntD Override */
+
+.crud-contact-type-container .ant-table-cell {
+  min-width: 150px;
+}
+
+.crud-contact-type-container .ant-table-selection-column {
+  min-width: 50px;
+}
