@@ -2,6 +2,7 @@ import { Button, Col, Row, Table } from 'antd';
 import { FC, useState } from 'react';
 import { useRole } from '../../../hooks/useRole';
 import { Role } from '../../../types/role';
+import { CreateEditRole } from './CreateEditRole/CreateEditRole';
 
 import './RoleView.css';
 
@@ -14,6 +15,7 @@ export const RoleView: FC = () => {
     {
       title: 'Name',
       dataIndex: 'name',
+      width: 250,
     },
     {
       title: 'Description',
@@ -24,8 +26,16 @@ export const RoleView: FC = () => {
   return (
     <div className="crud-role-container">
       <Row className="crud-role-button-group" gutter={16} justify={'end'}>
-        <Col>Button</Col>
-        <Col>Button</Col>
+        <Col>
+          <CreateEditRole />
+        </Col>
+        <Col>
+          <CreateEditRole
+            editMode
+            disabled={!selectedRole}
+            selectedRole={selectedRole}
+          />
+        </Col>
         <Col>
           <Button disabled={!selectedRole}>Delete</Button>
         </Col>
