@@ -10,7 +10,7 @@ import { Person } from '../../../types/person';
 import { CreateEditPerson } from './CreateEditPerson/CreateEditPerson';
 
 export const PersonView: FC = () => {
-  const { people, deletePerson } = usePerson();
+  const { people, fetchPeople, deletePerson } = usePerson();
 
   const [selectedPerson, setSelectedPerson] = useState<Person>();
 
@@ -39,7 +39,7 @@ export const PersonView: FC = () => {
       title: 'Staff',
       dataIndex: 'staff',
       render: (item: boolean) => {
-        return <>{item}</>;
+        return <>{item ? 'Yes' : 'No'}</>;
       },
     },
     {
@@ -74,19 +74,21 @@ export const PersonView: FC = () => {
 
   const handleDelete = () => {
     deletePerson({ id: selectedPerson!.id });
+    setSelectedPerson(undefined);
   };
 
   return (
     <div className="crud-person-container">
       <Row className="crud-person-button-group" gutter={16} justify={'end'}>
         <Col>
-          <CreateEditPerson />
+          <CreateEditPerson refetch={fetchPeople} />
         </Col>
         <Col>
           <CreateEditPerson
             editMode
             disabled={!selectedPerson}
             selectedPerson={selectedPerson}
+            refetch={fetchPeople}
           />
         </Col>
         <Col>

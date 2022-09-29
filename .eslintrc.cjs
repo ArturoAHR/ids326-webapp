@@ -24,6 +24,7 @@ module.exports = {
     quotes: ['error', 'single'],
     'no-duplicate-imports': 'error',
     'react/react-in-jsx-scope': 'off',
+    'no-console': 'warn',
     'prettier/prettier': [
       'error',
       {

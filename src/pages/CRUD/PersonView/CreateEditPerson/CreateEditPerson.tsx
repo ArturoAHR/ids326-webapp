@@ -11,12 +11,14 @@ type CreatePersonProps = {
   disabled?: boolean;
   editMode?: boolean;
   selectedPerson?: Person;
+  refetch: () => Promise<void>;
 };
 
 export const CreateEditPerson: FC<CreatePersonProps> = ({
   disabled,
   editMode,
   selectedPerson,
+  refetch,
 }) => {
   const [form] = Form.useForm<CreatePersonForm>();
   const { createPerson, editPerson } = usePerson();
@@ -28,9 +30,10 @@ export const CreateEditPerson: FC<CreatePersonProps> = ({
 
   const showModal = () => setIsModalVisible(true);
 
-  const handleSubmit = (values: CreatePersonForm) => {
-    if (editMode) editPerson({ id: selectedPerson!.id, ...values });
-    else createPerson(values);
+  const handleSubmit = async (values: CreatePersonForm) => {
+    if (editMode) await editPerson({ id: selectedPerson!.id, ...values });
+    else await createPerson(values);
+    await refetch();
     setIsModalVisible(false);
   };
 
