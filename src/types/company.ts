@@ -1,4 +1,4 @@
-import { BaseEntityType } from './base-entity-type';
+import { BaseEntityType, BaseIdType } from './base-entity-type';
 import { Person } from './person';
 
 export type BaseCompany = {
@@ -20,4 +20,12 @@ export type GetCompanyResponse = BaseEntityType &
     __ceo__?: Person;
   };
 
+export type CreateCompanyRequest = BaseCompany;
+
 export type Company = BaseEntityType & BaseCompany & CompanyForeignEntities;
+
+export type EditCompanyRequest = BaseIdType & Partial<BaseCompany>;
+
+export type DeleteCompanyRequest = BaseIdType;
+
+export type CreateCompanyForm = BaseCompany;
