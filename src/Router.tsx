@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { CompanyView } from './pages/CRUD/CompanyView/CompanyView';
 import { ContactTypeView } from './pages/CRUD/ContactTypeView/ContactTypeView';
 import { CRUD } from './pages/CRUD/CRUD';
 import { DepartmentView } from './pages/CRUD/DepartmentView/DepartmentView';
@@ -39,6 +40,14 @@ export const Router = () => {
         element={
           <CRUD>
             <DepartmentView />
+          </CRUD>
+        }
+      />
+      <Route
+        path="/hw-1/crud/company"
+        element={
+          <CRUD>
+            <CompanyView />
           </CRUD>
         }
       />
