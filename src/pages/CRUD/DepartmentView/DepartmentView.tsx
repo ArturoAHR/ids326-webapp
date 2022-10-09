@@ -3,6 +3,8 @@ import { FC, useState } from 'react';
 import { useDepartment } from '../../../hooks/useDepartment';
 import { Department } from '../../../types/department';
 
+import './DepartmentView.css';
+
 export const DepartmentView: FC = () => {
   const { departments, fetchDepartments, deleteDepartment } = useDepartment();
 
