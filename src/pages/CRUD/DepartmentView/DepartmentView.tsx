@@ -2,6 +2,7 @@ import { Row, Col, Button, Table } from 'antd';
 import { FC, useState } from 'react';
 import { useDepartment } from '../../../hooks/useDepartment';
 import { Department } from '../../../types/department';
+import { CreateEditDepartment } from './CreateEditDepartment/CreateEditDepartment';
 
 import './DepartmentView.css';
 
@@ -33,14 +34,16 @@ export const DepartmentView: FC = () => {
   return (
     <div className="crud-department-container">
       <Row className="crud-department-button-group" gutter={16} justify={'end'}>
-        <Col>{/* <CreateEditDepartment refetch={fetchDepartments} /> */}</Col>
         <Col>
-          {/* <CreateEditDepartment
+          <CreateEditDepartment refetch={fetchDepartments} />
+        </Col>
+        <Col>
+          <CreateEditDepartment
             editMode
             disabled={!selectedDepartment}
             selectedDepartment={selectedDepartment}
             refetch={fetchDepartments}
-          /> */}
+          />
         </Col>
         <Col>
           <Button disabled={!selectedDepartment} onClick={handleDelete}>
