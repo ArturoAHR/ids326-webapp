@@ -5,6 +5,7 @@ import { Company } from '../../../types/company';
 import { Person } from '../../../types/person';
 
 import './CompanyView.css';
+import { CreateEditCompany } from './CreateEditCompany/CreateEditCompany';
 
 export const CompanyView: FC = () => {
   const { companies, fetchCompanies, deleteCompany } = useCompany();
@@ -55,14 +56,16 @@ export const CompanyView: FC = () => {
   return (
     <div className="crud-company-container">
       <Row className="crud-company-button-group" gutter={16} justify={'end'}>
-        <Col>{/* <CreateEditCompany refetch={fetchCompanies} /> */}</Col>
         <Col>
-          {/* <CreateEditCompany
+          <CreateEditCompany refetch={fetchCompanies} />
+        </Col>
+        <Col>
+          <CreateEditCompany
             editMode
             disabled={!selectedCompany}
             selectedCompany={selectedCompany}
             refetch={fetchCompanies}
-          /> */}
+          />
         </Col>
         <Col>
           <Button disabled={!selectedCompany} onClick={handleDelete}>
