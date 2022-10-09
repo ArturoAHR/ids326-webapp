@@ -4,6 +4,8 @@ import { useCompany } from '../../../hooks/useCompany';
 import { Company } from '../../../types/company';
 import { Person } from '../../../types/person';
 
+import './CompanyView.css';
+
 export const CompanyView: FC = () => {
   const { companies, fetchCompanies, deleteCompany } = useCompany();
 
