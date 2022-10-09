@@ -1,7 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { CompanyMapper } from '../mappers/company';
 import { CompanyService } from '../services/company-service';
-import { Company } from '../types/company';
+import {
+  Company,
+  CreateCompanyRequest,
+  DeleteCompanyRequest,
+  EditCompanyRequest,
+} from '../types/company';
 import { SelectOption } from '../types/misc';
 
 export const useCompany = () => {
@@ -28,6 +33,24 @@ export const useCompany = () => {
     setCompanies(newCompanies);
   };
 
+  const deleteCompany = async (dto: DeleteCompanyRequest) => {
+    const deleted: boolean = await companyService.delete(dto);
+    await fetchCompanies();
+    return deleted;
+  };
+
+  const createCompany = async (dto: CreateCompanyRequest) => {
+    const created: boolean = await companyService.create(dto);
+    await fetchCompanies();
+    return created;
+  };
+
+  const editCompany = async (dto: EditCompanyRequest) => {
+    const edited: boolean = await companyService.edit(dto);
+    await fetchCompanies();
+    return edited;
+  };
+
   useEffect(() => {
     fetchCompanies();
   }, []);
@@ -36,5 +59,8 @@ export const useCompany = () => {
     companies,
     companyOptions,
     fetchCompanies,
+    createCompany,
+    editCompany,
+    deleteCompany,
   };
 };
