@@ -1,4 +1,4 @@
-import { BaseEntityType } from './base-entity-type';
+import { BaseEntityType, BaseIdType } from './base-entity-type';
 
 export type BaseDepartment = {
   code: string;
@@ -9,3 +9,11 @@ export type BaseDepartment = {
 export type GetDepartmentsResponse = BaseEntityType & BaseDepartment;
 
 export type Department = BaseEntityType & BaseDepartment;
+
+export type CreateDepartmentRequest = BaseDepartment;
+
+export type EditDepartmentRequest = BaseIdType & Partial<BaseDepartment>;
+
+export type DeleteDepartmentRequest = BaseIdType;
+
+export type CreateDepartmentForm = BaseDepartment;

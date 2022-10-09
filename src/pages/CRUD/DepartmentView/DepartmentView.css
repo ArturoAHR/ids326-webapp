@@ -1,0 +1,17 @@
+.crud-department-container {
+  padding: 24px;
+}
+
+.crud-department-button-group {
+  margin-bottom: 16px;
+}
+
+/* AntD Override */
+
+.crud-department-container .ant-table-cell {
+  min-width: 150px;
+}
+
+.crud-department-container .ant-table-selection-column {
+  min-width: 50px;
+}

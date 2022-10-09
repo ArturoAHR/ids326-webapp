@@ -1,7 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { DepartmentMapper } from '../mappers/department';
 import { DepartmentService } from '../services/department-service';
-import { Department } from '../types/department';
+import {
+  CreateDepartmentRequest,
+  DeleteDepartmentRequest,
+  Department,
+  EditDepartmentRequest,
+} from '../types/department';
 import { SelectOption } from '../types/misc';
 
 export const useDepartment = () => {
@@ -29,6 +34,24 @@ export const useDepartment = () => {
     setDepartments(newDepartments);
   };
 
+  const deleteDepartment = async (dto: DeleteDepartmentRequest) => {
+    const deleted: boolean = await departmentService.delete(dto);
+    await fetchDepartments();
+    return deleted;
+  };
+
+  const createDepartment = async (dto: CreateDepartmentRequest) => {
+    const created: boolean = await departmentService.create(dto);
+    await fetchDepartments();
+    return created;
+  };
+
+  const editDepartment = async (dto: EditDepartmentRequest) => {
+    const edited: boolean = await departmentService.edit(dto);
+    await fetchDepartments();
+    return edited;
+  };
+
   useEffect(() => {
     fetchDepartments();
   }, []);
@@ -37,5 +60,8 @@ export const useDepartment = () => {
     departments,
     departmentOptions,
     fetchDepartments,
+    createDepartment,
+    editDepartment,
+    deleteDepartment,
   };
 };
