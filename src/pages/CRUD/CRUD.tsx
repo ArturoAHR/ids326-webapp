@@ -12,7 +12,7 @@ enum CRUDTabMenuOptions {
   Person = '/hw-1/crud/person',
   Role = '/hw-1/crud/role',
   ContactType = '/hw-1/crud/contact-type',
-  Department = 'hw-1/crud/department',
+  Department = '/hw-1/crud/department',
 }
 
 export const CRUD: FC<CRUDProps> = ({ children }) => {
