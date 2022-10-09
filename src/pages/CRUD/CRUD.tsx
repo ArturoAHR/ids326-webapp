@@ -10,8 +10,10 @@ type CRUDProps = {
 
 enum CRUDTabMenuOptions {
   Person = '/hw-1/crud/person',
+  Company = '/hw-1/crud/company',
   Role = '/hw-1/crud/role',
   ContactType = '/hw-1/crud/contact-type',
+  Department = '/hw-1/crud/department',
 }
 
 export const CRUD: FC<CRUDProps> = ({ children }) => {
@@ -30,6 +32,8 @@ export const CRUD: FC<CRUDProps> = ({ children }) => {
         onChange={handleChange}
         items={[
           { label: 'Person', key: CRUDTabMenuOptions.Person },
+          { label: 'Company', key: CRUDTabMenuOptions.Company },
+          { label: 'Department', key: CRUDTabMenuOptions.Department },
           { label: 'Role', key: CRUDTabMenuOptions.Role },
           { label: 'Contact Type', key: CRUDTabMenuOptions.ContactType },
         ]}

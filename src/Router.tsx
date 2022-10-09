@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { ContactTypeView } from './pages/CRUD/ContactType/ContactTypeView';
+import { CompanyView } from './pages/CRUD/CompanyView/CompanyView';
+import { ContactTypeView } from './pages/CRUD/ContactTypeView/ContactTypeView';
 import { CRUD } from './pages/CRUD/CRUD';
+import { DepartmentView } from './pages/CRUD/DepartmentView/DepartmentView';
 import { PersonView } from './pages/CRUD/PersonView/PersonView';
 import { RoleView } from './pages/CRUD/RoleView/RoleView';
 import { Root } from './pages/Root/Root';
@@ -30,6 +32,22 @@ export const Router = () => {
         element={
           <CRUD>
             <ContactTypeView />
+          </CRUD>
+        }
+      />
+      <Route
+        path="/hw-1/crud/department"
+        element={
+          <CRUD>
+            <DepartmentView />
+          </CRUD>
+        }
+      />
+      <Route
+        path="/hw-1/crud/company"
+        element={
+          <CRUD>
+            <CompanyView />
           </CRUD>
         }
       />
