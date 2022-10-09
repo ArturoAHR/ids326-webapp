@@ -20,6 +20,7 @@ export const DepartmentView: FC = () => {
     {
       title: 'Code',
       dataIndex: 'code',
+      width: 150,
     },
     {
       title: 'Description',
