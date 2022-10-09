@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { PersonMapper } from '../mappers/person';
 import { PersonService } from '../services/person-service';
+import { SelectOption } from '../types/misc';
 import {
   CreatePersonRequest,
   DeletePersonRequest,
@@ -12,6 +13,15 @@ export const usePerson = () => {
   const [people, setPeople] = useState<Person[]>([]);
 
   const personService: PersonService = useMemo(() => new PersonService(), []);
+
+  const personOptions: SelectOption[] = useMemo(
+    () =>
+      people.map((person) => ({
+        value: person.id,
+        label: `${person.firstName} ${person.lastName}`,
+      })),
+    [people],
+  );
 
   const fetchPeople = async () => {
     const newPeople: Person[] = PersonMapper.mapTransformToEntityType(
@@ -42,5 +52,12 @@ export const usePerson = () => {
     fetchPeople();
   }, []);
 
-  return { people, fetchPeople, createPerson, editPerson, deletePerson };
+  return {
+    people,
+    personOptions,
+    fetchPeople,
+    createPerson,
+    editPerson,
+    deletePerson,
+  };
 };
